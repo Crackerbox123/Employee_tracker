@@ -1,22 +1,26 @@
-DROP TABLE IF EXISTS department;
-DROP TABLE IF EXISTS employeeRole;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS employeeRoles;
 DROP TABLE IF EXISTS employee;
 
-CREATE TABLE department (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY;
+CREATE TABLE departments (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE employeeRoles (
 
-    id INTEGER AUTO_INCREMENT PRIMARY KEY;
-    job_title VARCHAR(30) NOT NULL;
-    salary INTEGER NOT NULL;
-    department_id INTEGER NOT NULL;
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    job_title VARCHAR(30) NOT NULL,
+    salary INTEGER NOT NULL,
+    department_id INTEGER NOT NULL,
+    CONSTRAINT fk_depart
+        FOREIGN KEY (department_id)
+        REFERENCES departments(id)
 );
 
 CREATE TABLE employee (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY;
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-);
+
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30)
+)
