@@ -16,8 +16,6 @@ db.connect(err => {
       console.log(`server running on port ${PORT}`);
     });
   });
-
-
   console.table(
     "\n------------ EMPLOYEE TRACKER ------------\n"
 )
@@ -37,54 +35,55 @@ const promptMessages = {
 
 // inquirer prompt function
 
-function prompt() {
-  inquirer.prompt({
+async function prompt() {
+  await inquirer.prompt({
     name: 'intro',
     type: 'list',
     message: 'Select an option to begin',
     choices: [
-      promptMessages.viewAllEmployees,
-      promptMessages.viewByDepartment,
-      promptMessages.addEmployee,
-      promptMessages.removeEmployee,
-      promptMessages.updateRole,
-      promptMessages.viewAllRoles
-
+            'viewAllEmployees',
+            'viewByDepartment',
+            'addEmployee',
+            'removeEmployee',
+            'updateRole',
+            'viewAllRoles'
     ]
   })
   .then(answer => {
             console.log('answer', answer);
             switch (answer.intro) {
-                case promptMessages.viewAllEmployees:
+                case 'viewAllEmployees':
                     viewAllEmployees();
                     break;
 
-                case promptMessages.viewByDepartment:
+                case 'viewByDepartment':
                     viewByDepartment();
                     break;
 
-                case promptMessages.addEmployee:
+                case 'addEmployee':
                     addEmployee();
                     break;
 
-                case promptMessages.removeEmployee:
+                case 'removeEmployee':
                     remove('delete');
                     break;
 
-                case promptMessages.updateRole:
+                case 'updateRole':
                     remove('role');
                     break;
 
-                case promptMessages.viewAllRoles:
+                case 'viewAllRoles':
                     viewAllRoles();
                     break;
 
-                case promptMessages.exit:
+                case 'exit':
                     db.end();
                     break;
             }
         });
 };
+
+
 
 
 
