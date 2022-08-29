@@ -27,7 +27,7 @@ db.connect(err => {
 
 const promptMessages = {
   viewAllEmployees: "View All Employees",
-  viewByDepartment: "View All Employees By Department",
+  viewByDepartment: "View Departments",
   viewByManager: "View All Employees By Manager",
   addEmployee: "Add An Employee",
   removeEmployee: "Remove An Employee",
@@ -45,7 +45,6 @@ function prompt() {
     choices: [
       promptMessages.viewAllEmployees,
       promptMessages.viewByDepartment,
-      promptMessages.viewByManager,
       promptMessages.addEmployee,
       promptMessages.removeEmployee,
       promptMessages.updateRole,
@@ -62,10 +61,6 @@ function prompt() {
 
                 case promptMessages.viewByDepartment:
                     viewByDepartment();
-                    break;
-
-                case promptMessages.viewByManager:
-                    viewByManager();
                     break;
 
                 case promptMessages.addEmployee:
@@ -92,3 +87,21 @@ function prompt() {
 };
 
 
+
+//function askName() {
+//  return ([
+//      {
+//          name: "first",
+//          type: "input",
+//          message: "Enter the first name: "
+//      },
+//      {
+//          name: "last",
+//          type: "input",
+//          message: "Enter the last name: "
+//      }
+//  ]);
+//}
+//
+//
+//
