@@ -3,10 +3,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require('./db/connection');
 const inquirer = require('inquirer');
-
-// const cTable = require('console.table');
-
-// const table = cTable.getTable(department)
+queries = require('./queryfunctions');
+const cTable = require('console.table');
 
 
 // start server after db connection
@@ -18,6 +16,11 @@ db.connect(err => {
       console.log(`server running on port ${PORT}`);
     });
   });
+
+
+  console.table(
+    "\n------------ EMPLOYEE TRACKER ------------\n"
+)
 
 
 // prompt table
@@ -52,7 +55,7 @@ function prompt() {
   })
   .then(answer => {
             console.log('answer', answer);
-            switch (answer.action) {
+            switch (answer.intro) {
                 case promptMessages.viewAllEmployees:
                     viewAllEmployees();
                     break;
@@ -82,8 +85,10 @@ function prompt() {
                     break;
 
                 case promptMessages.exit:
-                    connection.end();
+                    db.end();
                     break;
             }
         });
 };
+
+
