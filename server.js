@@ -5,8 +5,9 @@ const db = require('./db/connection');
 const inquirer = require('inquirer');
 //queries = require('./queryfunctions');
 const cTable = require('console.table');
+const util = require('util');
 
-
+db.query = util.promisify(db.query);
 // start server after db db
 db.connect(err => {
     if (err) throw err;
