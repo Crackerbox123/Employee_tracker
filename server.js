@@ -7,6 +7,8 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const util = require('util');
 
+
+// promisify magic
 db.query = util.promisify(db.query);
 // start server after db db
 db.connect(err => {
@@ -20,6 +22,15 @@ db.connect(err => {
   console.table(
     "\n------------ EMPLOYEE TRACKER ------------\n"
 )
+
+
+
+
+
+
+
+
+
 
 const initialAction = async () => {
     try {
@@ -192,8 +203,6 @@ const employeeAdd = async () => {
         initialAction();
     };
 };
-
-
 
 // Selection to add a new department.
 const departmentAdd = async () => {
