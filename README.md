@@ -29,7 +29,7 @@
 3. Your Badge Readme: <a href = "https://gist.github.com/ckib16/8732561535ed766cd6b8">MIT Guide</a></br>
 
   ## Testing:
-  After installing the code base and required NPM packages, invoke the app with node index.js and enter user information. Confirm that the employee or value has been added by accessing the mysql database with a mysql workbench or other software.</br>
+  After installing the code, required NPM packages, and invoking the schema, invoke the app with node index.js and enter user information. Confirm that the employee or value has been added by accessing the mysql database with a mysql workbench or other software.</br>
 
   ## Credits:
   n/a</br>

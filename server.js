@@ -170,7 +170,7 @@ const employeeAdd = async () => {
                 choices: roles.map((role) => {
                     return {
                         name: role.title,
-                        value: role.id
+                        value: role.idrole
                     }
                 }),
                 message: "What is this Employee's role id?"
@@ -218,7 +218,7 @@ const departmentAdd = async () => {
         ]);
 
         let result = await db.query("INSERT INTO department SET ?", {
-            department_name: answer.deptName
+            name: answer.deptName
         });
 
         console.log(`${answer.deptName} added successfully to departments.\n`)
@@ -313,7 +313,7 @@ const employeeUpdate = async () => {
                 choices: roles.map((roleName) => {
                     return {
                         name: roleName.title,
-                        value: roleName.id
+                        value: roleName.idrole
                     }
                 }),
                 message: 'Please select the role to update the employee with.'
