@@ -20,18 +20,9 @@ db.connect(err => {
     });
   });
   console.table(
-    "\n------------ EMPLOYEE TRACKER ------------\n"
+    "\n------------ EMPLOYEE TRACKER ------------\n",
+    "\n------------------------------------------\n"
 )
-
-
-
-
-
-
-
-
-
-
 const initialAction = async () => {
     try {
         let answer = await inquirer.prompt({
@@ -105,7 +96,6 @@ const employeeView = async () => {
     };
 };
 
-
 // Selection to view all of the departments.
 const departmentView = async () => {
     console.log('Department View');
@@ -124,7 +114,6 @@ const departmentView = async () => {
     };
 };
 
-
 // Selection to view all of the roles.
 const roleView = async () => {
     console.log('Role View');
@@ -142,7 +131,6 @@ const roleView = async () => {
         initialAction();
     };
 };
-
 
 // Selection to add a new employee.
 const employeeAdd = async () => {
